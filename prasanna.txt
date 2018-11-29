@@ -1,0 +1,48 @@
+package HotelBookingPage;
+
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SelDemo2Test {
+    static WebDriver driver;
+	
+	@BeforeClass
+	public static void testLaunch() {
+		System.setProperty("webdriver.chrome.driver","D:\\chromebdd\\chromedriver.exe");
+		driver=new ChromeDriver();
+	}
+
+	@Test
+	public void testNavigate() {
+		driver.get("file://ndafile/Study%20Materials/JEE/2018/Java%20Full%20Stack/Module%203/App/login.html");
+	}
+	
+	@Test
+	public void testUsername() {
+		WebElement user=driver.findElement(By.name("userName"));
+		user.clear();
+		user.sendKeys("Capgemini");
+	}
+	
+	@Test
+	public void testPassword() {
+		WebElement pass=driver.findElement(By.name("userPwd"));
+		pass.clear();
+		pass.sendKeys("Capgemini");
+	}
+	
+	@Test
+	public void testSubmit() {
+		driver.findElement(By.xpath("//input[@type='button']"));
+	}
+	
+	/*@AfterClass
+	public static void testCloser() {
+		driver.close();
+	}*/
+
+}
